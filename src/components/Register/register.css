@@ -1,9 +1,5 @@
 form {
   display: flex;
-}
-
-div {
-  display: flex;
   flex-direction: column;
 }
 
@@ -37,4 +33,5 @@ button {
   align-items: center;
   max-width: fit-content;
   padding: 2%;
+  flex-direction: column;
 }
