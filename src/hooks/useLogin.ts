@@ -11,7 +11,9 @@ export const useLogin = () => {
       },
       body: JSON.stringify(userData),
     });
-    await response.json();
+    const userRegisterresponse: ProtoUser = await response.json();
+
+    return userRegisterresponse;
   };
 
   return { register };

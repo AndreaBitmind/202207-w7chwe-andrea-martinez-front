@@ -1,10 +1,32 @@
+import { SyntheticEvent, useState } from "react";
+import { useLogin } from "../../hooks/useLogin";
 import "./register.css";
 
 export const Register = () => {
+  const { register } = useLogin();
+
+  const initialState = {
+    userName: "",
+    passWord: "",
+    image: "",
+  };
+
+  const [registerData, setRegisterData] = useState(initialState);
+
+  const handleSubmit = async (event: SyntheticEvent) => {
+    event.preventDefault();
+    register(registerData);
+    setRegisterData(initialState);
+  };
+
+  const handleChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
+    setRegisterData({ ...registerData, [ev.target.name]: ev.target.value });
+  };
+
   return (
     <div className="main-component">
       <h2>Create your user</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label htmlFor="userName">Enter your User Name</label>
         <input
           type="text"
@@ -12,6 +34,8 @@ export const Register = () => {
           placeholder="User name"
           required
           autoComplete="off"
+          value={registerData.userName}
+          onChange={handleChange}
         />
 
         <label htmlFor="password">Enter your password</label>
@@ -21,6 +45,8 @@ export const Register = () => {
           placeholder="Password"
           required
           autoComplete="off"
+          value={registerData.passWord}
+          onChange={handleChange}
         />
         <label htmlFor="userName">Enter your birthdate</label>
         <input type="date" name="birthdate" required autoComplete="off" />
