@@ -19,8 +19,11 @@ export const Register = () => {
     setRegisterData(initialState);
   };
 
-  const handleChange = (ev: React.ChangeEvent<HTMLInputElement>) => {
-    setRegisterData({ ...registerData, [ev.target.name]: ev.target.value });
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setRegisterData({
+      ...registerData,
+      [event.target.name]: event.target.value,
+    });
   };
 
   return (
@@ -38,10 +41,10 @@ export const Register = () => {
           onChange={handleChange}
         />
 
-        <label htmlFor="password">Enter your password</label>
+        <label htmlFor="passWord">Enter your password</label>
         <input
           type="password"
-          name="password"
+          name="passWord"
           placeholder="Password"
           required
           autoComplete="off"

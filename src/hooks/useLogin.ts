@@ -1,7 +1,7 @@
 import { ProtoUser } from "../interfaces/UserInterfaces";
 
 export const useLogin = () => {
-  const url = process.env.REACT_APP_API_URL as string;
+  const url = process.env.REACT_APP_API_BASE_URL!;
 
   const register = async (userData: ProtoUser) => {
     const response = await fetch(`${url}users/register`, {
