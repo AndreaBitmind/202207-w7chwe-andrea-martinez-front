@@ -7,9 +7,11 @@ describe("Given a register function", () => {
     test("then it should send a post request", async () => {
       const userTest: ProtoUser = {
         userName: "pusky",
-        passWord: "46581",
+        password: "46581",
         image: "imagen.png",
       };
+
+      const url = "fakeURL";
 
       global.fetch = jest.fn().mockReturnValue({
         json: jest.fn().mockReturnValue(userTest),
@@ -21,7 +23,7 @@ describe("Given a register function", () => {
         },
       } = renderHook(useLogin);
 
-      const mockResult: ProtoUser = await register(userTest);
+      const mockResult: ProtoUser = await register(userTest, url);
 
       expect(mockResult).toEqual(userTest);
     });
