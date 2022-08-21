@@ -3,7 +3,7 @@ import { useLogin } from "../../hooks/useLogin";
 import { ProtoUser } from "../../interfaces/UserInterfaces";
 
 describe("Given a register function", () => {
-  describe("when it call and receives a 'puski' name and '1234' as a password", () => {
+  describe("when it call and receives a 'pusky' name and '46581' as a password", () => {
     test("then it should send a post request", async () => {
       const userTest: ProtoUser = {
         userName: "pusky",
