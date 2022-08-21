@@ -1,10 +1,8 @@
 import { ProtoUser } from "../interfaces/UserInterfaces";
 
 export const useLogin = () => {
-  const url = process.env.REACT_APP_API_BASE_URL!;
-
-  const register = async (userData: ProtoUser) => {
-    const response = await fetch(`${url}users/register`, {
+  const register = async (userData: ProtoUser, url: string) => {
+    const response = await fetch(url + "users/register", {
       mode: "no-cors",
       method: "POST",
       headers: {
@@ -13,9 +11,9 @@ export const useLogin = () => {
       },
       body: JSON.stringify(userData),
     });
-    const userRegisterresponse: ProtoUser = await response.json();
+    const registerResponse = await response.json();
 
-    return userRegisterresponse;
+    return registerResponse;
   };
 
   return { register };

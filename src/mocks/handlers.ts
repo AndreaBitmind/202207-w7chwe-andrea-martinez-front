@@ -8,7 +8,7 @@ export const handlers = [
         ctx.json([
           {
             userName: "pusky",
-            passWord: "46581",
+            password: "46581",
             image: "imagen.png",
           },
         ])

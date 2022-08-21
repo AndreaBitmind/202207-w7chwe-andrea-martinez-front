@@ -1,6 +1,6 @@
 export interface ProtoUser {
   userName: string;
-  passWord: string;
+  password: string;
   image?: string;
 }
 

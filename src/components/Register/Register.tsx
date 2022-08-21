@@ -2,12 +2,14 @@ import { SyntheticEvent, useState } from "react";
 import { useLogin } from "../../hooks/useLogin";
 import "./register.css";
 
+const url = process.env.REACT_APP_API_BASE_URL!;
+
 export const Register = () => {
   const { register } = useLogin();
 
   const initialState = {
     userName: "",
-    passWord: "",
+    password: "",
     image: "",
   };
 
@@ -15,7 +17,7 @@ export const Register = () => {
 
   const handleSubmit = async (event: SyntheticEvent) => {
     event.preventDefault();
-    register(registerData);
+    register(registerData, url);
     setRegisterData(initialState);
   };
 
@@ -41,14 +43,14 @@ export const Register = () => {
           onChange={handleChange}
         />
 
-        <label htmlFor="passWord">Enter your password</label>
+        <label htmlFor="password">Enter your password</label>
         <input
           type="password"
-          name="passWord"
+          name="password"
           placeholder="Password"
           required
           autoComplete="off"
-          value={registerData.passWord}
+          value={registerData.password}
           onChange={handleChange}
         />
         <label htmlFor="userName">Enter your birthdate</label>
