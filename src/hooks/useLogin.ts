@@ -5,7 +5,7 @@ export const useLogin = () => {
 
   const register = async (userData: ProtoUser) => {
     const response = await fetch(`${url}users/register`, {
-      mode: "cors",
+      mode: "no-cors",
       method: "POST",
       headers: {
         "Content-Type": "application/json",
